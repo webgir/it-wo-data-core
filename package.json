@@ -1,0 +1,31 @@
+{
+  "name": "it-wo-data-core",
+  "version": "0.1.0",
+  "description": "IT-WO Data Core (IWDC) — независимая платформа обработки инженерных каталогов. Превращает табличные данные (XLS/XLSX) в нормализованный JSON-слой с полной валидацией, diff/историей изменений и готовностью к интеграции в web/API.",
+  "type": "module",
+  "main": "tools/cli/iwdc-build.mjs",
+  "scripts": {
+    "iwdc:build": "node tools/cli/iwdc-build.mjs",
+    "iwdc:validate": "node tools/cli/iwdc-validate.mjs",
+    "iwdc:diff": "node tools/cli/iwdc-diff.mjs"
+  },
+  "keywords": [
+    "data-pipeline",
+    "etl",
+    "xls",
+    "csv",
+    "json",
+    "validation",
+    "catalog",
+    "it-wo",
+    "iwdc"
+  ],
+  "author": "Иванов Сергей Владимирович",
+  "license": "PROPRIETARY",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+

@@ -1,0 +1,111 @@
+# IWDC v0.1 — Git Ignore Rules
+
+# ============================================
+# Node.js
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ============================================
+# Intermediate Layer (генерируемые CSV)
+# ============================================
+# Промежуточные CSV файлы генерируются автоматически
+# В репозитории остаются только .gitkeep
+intermediate/csv/*.csv
+intermediate/csv/*.CSV
+!intermediate/csv/.gitkeep
+
+# ============================================
+# Data Layer (генерируемые JSON)
+# ============================================
+# Итоговые JSON файлы генерируются пайплайном
+# В репозитории остаются только .gitkeep
+data/json/series/*.json
+data/json/models/*.json
+data/json/lengths/**/*.json
+!data/json/series/.gitkeep
+!data/json/models/.gitkeep
+!data/json/lengths/.gitkeep
+
+# ============================================
+# Sources Layer (опционально)
+# ============================================
+# Исходные XLS файлы могут быть большими
+# Раскомментируйте, если не хотите хранить их в Git
+# sources/xls/*.xlsx
+# sources/xls/*.xls
+# sources/xls/*.XLSX
+# sources/xls/*.XLS
+# !sources/xls/.gitkeep
+
+# ============================================
+# Временные и служебные файлы
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# Логи и отчёты
+# ============================================
+*.log
+logs/
+*.diff
+*.patch
+changelog-*.txt
+changelog-*.md
+diff-*.json
+diff-*.txt
+
+# ============================================
+# IDE и редакторы
+# ============================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# ============================================
+# OS файлы
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# ============================================
+# Тестовые и временные данные
+# ============================================
+test-output/
+tmp/
+temp/
+.cache/
+
+# ============================================
+# Environment и конфигурация
+# ============================================
+.env
+.env.local
+.env.*.local
+config.local.json
+*.local.json
+
