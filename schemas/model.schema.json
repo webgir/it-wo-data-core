@@ -1,0 +1,72 @@
+{
+  "$id": "https://it-wo.ru/iwdc/schemas/model.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IWDC Model",
+  "type": "object",
+
+  "required": [
+    "series",
+    "model_code",
+    "slug",
+    "path",
+    "material",
+    "meta"
+  ],
+
+  "properties": {
+    "series": {
+      "type": "string",
+      "pattern": "^[A-ZА-Я0-9]+$"
+    },
+
+    "model_code": {
+      "type": "string",
+      "description": "Арт модели без длины",
+      "pattern": "^[A-ZА-Я0-9\\.]+$"
+    },
+
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9\\-\\.]+$"
+    },
+
+    "path": {
+      "type": "string",
+      "pattern": "^/[a-z0-9\\-\\.]+(/[a-z0-9\\-\\.]+)*$"
+    },
+
+    "material": {
+      "type": "string",
+      "enum": ["galvanized", "stainless", "none"]
+    },
+
+    "lengths": {
+      "type": "array",
+      "description": "Список длин, привязанных к модели",
+      "items": { "type": "string" }
+    },
+
+    "seo": {
+      "type": "object",
+      "description": "SEO — опционально",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "h1": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "meta": {
+      "type": "object",
+      "required": ["version", "updated", "hash"],
+      "properties": {
+        "version": { "type": "string" },
+        "updated": { "type": "string", "format": "date-time" },
+        "hash": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
+

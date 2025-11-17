@@ -7,7 +7,12 @@
   "scripts": {
     "iwdc:build": "node tools/cli/iwdc-build.mjs",
     "iwdc:validate": "node tools/cli/iwdc-validate.mjs",
-    "iwdc:diff": "node tools/cli/iwdc-diff.mjs"
+    "iwdc:diff": "node tools/cli/iwdc-diff.mjs",
+    "import-vitron": "node scripts/import-vitron-csv.mjs",
+    "test-data": "node scripts/test-data.mjs",
+    "data:snapshot": "node scripts/snapshot-version.mjs",
+    "data:diff": "node tools/cli/iwdc-diff.mjs",
+    "data:diff:changelog": "node tools/cli/iwdc-diff.mjs --with-changelog"
   },
   "keywords": [
     "data-pipeline",
@@ -25,7 +30,10 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^3.0.1",
+    "csv-parse": "^6.1.0",
+    "xlsx": "^0.18.5"
+  }
 }
-

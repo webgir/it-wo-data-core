@@ -1,84 +1,85 @@
 {
-  "series": "VK",
-  "model_slug": "vk.65.160.2tg",
-  "locale": "ru",
-  "meta": {
-    "build_date": "2025-01-01T00:00:00Z",
-    "source_version": "0.1.0"
-  },
-  "seo": {
-    "title": "Конвектор VK.65.160.2TG",
-    "description": "Тестовая модель для tiny-примера IWDC.",
-    "h1": "Конвектор VK.65.160.2TG",
-    "canonical": "/vk/vk-65-160-2tg",
-    "keywords": []
-  },
-  "lengths": [
-    {
-      "series": "VK",
-      "model_slug": "vk.65.160.2tg",
-      "slug": "vk.65.160.2tg-600",
-      "length_mm": 600,
-      "power_w": 125,
-      "price_side": 9800,
-      "price_bottom": 9800,
-      "weight_kg": 0,
-      "locale": "ru",
-      "seo": {
-        "title": "Конвектор VK.65.160.2TG 600 мм",
-        "description": "Тестовая длина 600 мм для tiny-примера IWDC.",
-        "h1": "Конвектор VK.65.160.2TG 600 мм",
-        "canonical": "/vk/vk-65-160-2tg/600",
-        "keywords": []
-      },
-      "meta": {
-        "build_date": "2025-01-01T00:00:00Z",
-        "source_version": "0.1.0"
-      }
+    "series": "VK",
+    "model_slug": "vk.65.160.2tg",
+    "locale": "ru",
+    "meta": {
+      "build_date": "2025-01-01T00:00:00Z",
+      "source_version": "0.1.0"
     },
-    {
-      "series": "VK",
-      "model_slug": "vk.65.160.2tg",
-      "slug": "vk.65.160.2tg-700",
-      "length_mm": 700,
-      "power_w": 140,
-      "price_side": 10100,
-      "price_bottom": 10100,
-      "weight_kg": 0,
-      "locale": "ru",
-      "seo": {
-        "title": "Конвектор VK.65.160.2TG 700 мм",
-        "description": "Тестовая длина 700 мм для tiny-примера IWDC.",
-        "h1": "Конвектор VK.65.160.2TG 700 мм",
-        "canonical": "/vk/vk-65-160-2tg/700",
-        "keywords": []
-      },
-      "meta": {
-        "build_date": "2025-01-01T00:00:00Z",
-        "source_version": "0.1.0"
-      }
+    "seo": {
+      "title": "Конвектор ВК.65.160.2ТГ",
+      "description": "Тестовая модель ВК.65.160.2ТГ для tiny-примера IWDC.",
+      "h1": "Конвектор ВК.65.160.2ТГ",
+      "canonical": "/vk/vk-65-160-2tg",
+      "keywords": []
     },
-    {
-      "series": "VK",
-      "model_slug": "vk.65.160.2tg",
-      "slug": "vk.65.160.2tg-800",
-      "length_mm": 800,
-      "power_w": 155,
-      "price_side": 10400,
-      "price_bottom": 10400,
-      "weight_kg": 0,
-      "locale": "ru",
-      "seo": {
-        "title": "Конвектор VK.65.160.2TG 800 мм",
-        "description": "Тестовая длина 800 мм для tiny-примера IWDC.",
-        "h1": "Конвектор VK.65.160.2TG 800 мм",
-        "canonical": "/vk/vk-65-160-2tg/800",
-        "keywords": []
+    "lengths": [
+      {
+        "series": "VK",
+        "model_slug": "vk.65.160.2tg",
+        "slug": "vk.65.160.600.2tg",
+        "length_mm": 600,
+        "power_w": 125,
+        "price_side": 9800,
+        "price_bottom": 9800,
+        "weight_kg": 0,
+        "locale": "ru",
+        "seo": {
+          "title": "Конвектор ВК.65.160.2ТГ — длина 600 мм",
+          "description": "Тестовая длина 600 мм для tiny-примера IWDC.",
+          "h1": "ВК.65.160.2ТГ — 600 мм",
+          "canonical": "/vk/vk-65-160-2tg/600",
+          "keywords": []
+        },
+        "meta": {
+          "build_date": "2025-01-01T00:00:00Z",
+          "source_version": "0.1.0"
+        }
       },
-      "meta": {
-        "build_date": "2025-01-01T00:00:00Z",
-        "source_version": "0.1.0"
+      {
+        "series": "VK",
+        "model_slug": "vk.65.160.2tg",
+        "slug": "vk.65.160.700.2tg",
+        "length_mm": 700,
+        "power_w": 140,
+        "price_side": 10100,
+        "price_bottom": 10100,
+        "weight_kg": 0,
+        "locale": "ru",
+        "seo": {
+          "title": "Конвектор ВК.65.160.2ТГ — длина 700 мм",
+          "description": "Тестовая длина 700 мм для tiny-примера IWDC.",
+          "h1": "ВК.65.160.2ТГ — 700 мм",
+          "canonical": "/vk/vk-65-160-2tg/700",
+          "keywords": []
+        },
+        "meta": {
+          "build_date": "2025-01-01T00:00:00Z",
+          "source_version": "0.1.0"
+        }
+      },
+      {
+        "series": "VK",
+        "model_slug": "vk.65.160.2tg",
+        "slug": "vk.65.160.800.2tg",
+        "length_mm": 800,
+        "power_w": 155,
+        "price_side": 10400,
+        "price_bottom": 10400,
+        "weight_kg": 0,
+        "locale": "ru",
+        "seo": {
+          "title": "Конвектор ВК.65.160.2ТГ — длина 800 мм",
+          "description": "Тестовая длина 800 мм для tiny-примера IWDC.",
+          "h1": "ВК.65.160.2ТГ — 800 мм",
+          "canonical": "/vk/vk-65-160-2tg/800",
+          "keywords": []
+        },
+        "meta": {
+          "build_date": "2025-01-01T00:00:00Z",
+          "source_version": "0.1.0"
+        }
       }
-    }
-  ]
-}
+    ]
+  }
+  

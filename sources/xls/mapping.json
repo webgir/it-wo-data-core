@@ -1,0 +1,297 @@
+{
+  "series": "VK",
+  "sheets": [
+    {
+      "sheetName": "55",
+      "height": 55,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "65",
+      "height": 65,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "70",
+      "height": 70,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "75",
+      "height": 75,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "80",
+      "height": 80,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "90",
+      "height": 90,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "110",
+      "height": 110,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "140",
+      "height": 140,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "150",
+      "height": 150,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "200",
+      "height": 200,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "300",
+      "height": 300,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "400",
+      "height": 400,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "500",
+      "height": 500,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    },
+    {
+      "sheetName": "600",
+      "height": 600,
+      "columns": {
+        "width": "K",
+        "length": "L",
+        "weight": "M",
+        "heat_output": "N",
+        "price_o": "O",
+        "price_p": "P",
+        "price_q": "Q",
+        "price_r": "R",
+        "price_s": "S",
+        "article_full": "U"
+      },
+      "filters": {
+        "skipIfEmpty": ["U"],
+        "skipIfStartsWith": ["ИТОГО", "Sheet"]
+      }
+    }
+  ],
+  "fieldsFromArticle": {
+    "article_full": {
+      "base": true,
+      "height": true,
+      "width": true,
+      "length": true,
+      "tubes": true,
+      "type": true
+    }
+  }
+}
+
+

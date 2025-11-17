@@ -1,0 +1,88 @@
+{
+  "$id": "https://it-wo.ru/iwdc/schemas/length.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IWDC Length",
+  "type": "object",
+
+  "required": [
+    "series",
+    "model_code",
+    "length",
+    "slug",
+    "path",
+    "thermal",
+    "price",
+    "meta"
+  ],
+
+  "properties": {
+    "series": {
+      "type": "string",
+      "pattern": "^[A-ZА-Я0-9]+$"
+    },
+
+    "model_code": {
+      "type": "string",
+      "pattern": "^[A-ZА-Я0-9\\.]+$"
+    },
+
+    "length": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 6000
+    },
+
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9\\-\\.]+$"
+    },
+
+    "path": {
+      "type": "string",
+      "pattern": "^/[a-z0-9\\-\\.]+(/[a-z0-9\\-\\.]+)*$"
+    },
+
+    "thermal": {
+      "type": "object",
+      "required": ["watt"],
+      "properties": {
+        "watt": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+
+    "price": {
+      "type": "object",
+      "required": ["side", "bottom"],
+      "properties": {
+        "side": { "type": "integer", "minimum": 0 },
+        "bottom": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+
+    "seo": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "h1": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "meta": {
+      "type": "object",
+      "required": ["version", "updated", "hash"],
+      "properties": {
+        "version": { "type": "string" },
+        "updated": { "type": "string", "format": "date-time" },
+        "hash": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+
+  "additionalProperties": false
+}
+
