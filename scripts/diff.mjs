@@ -1,5 +1,9 @@
 import fs from "fs";
 import path from "path";
+// Утилиты IWDC v0.6
+import * as paths from "../utils/paths.mjs";
+import { loadPreviousSnapshot } from "../utils/loadPreviousSnapshot.mjs";
+import { writeJsonFile } from "../utils/file.mjs";
 
 /**
  * Глубокое сравнение двух объектов
@@ -9,69 +13,28 @@ function deepEqual(obj1, obj2) {
 }
 
 /**
- * Получает ID объекта в зависимости от категории
- */
-function getId(obj, category) {
-  if (category === 'series') {
-    return obj.series || obj.slug || obj.id;
-  } else if (category === 'models') {
-    return obj.slug || obj.model_code || obj.id;
-  } else if (category === 'lengths') {
-    return obj.slug || obj.id;
-  }
-  return obj.id || obj.slug;
-}
-
-/**
- * Загружает данные версии из директории
- */
-function loadVersionData(versionPath, category) {
-  const categoryPath = path.join(versionPath, category);
-  const data = {};
-  
-  if (!fs.existsSync(categoryPath)) {
-    return data;
-  }
-  
-  const entries = fs.readdirSync(categoryPath, { withFileTypes: true });
-  
-  for (const entry of entries) {
-    if (entry.isFile() && entry.name.endsWith('.json')) {
-      const filePath = path.join(categoryPath, entry.name);
-      try {
-        const content = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        const id = getId(content, category);
-        if (id) {
-          data[id] = content;
-        }
-      } catch (error) {
-        console.warn(`⚠️  Ошибка загрузки файла ${filePath}: ${error.message}`);
-      }
-    }
-  }
-  
-  return data;
-}
-
-/**
  * Загружает все данные версии (series, models, lengths)
+ * Использует утилиту loadPreviousSnapshot из utils
  */
-function loadVersion(versionPath) {
-  return {
-    series: loadVersionData(versionPath, 'series'),
-    models: loadVersionData(versionPath, 'models'),
-    lengths: loadVersionData(versionPath, 'lengths')
-  };
+function loadVersion(version) {
+  const snapshot = loadPreviousSnapshot(version);
+  if (!snapshot) {
+    return {
+      series: {},
+      models: {},
+      lengths: {}
+    };
+  }
+  return snapshot;
 }
 
 /**
  * Сравнивает две версии данных и строит diff
  */
 export async function buildDataDiff({ fromVersion, toVersion, basePath = "data" }) {
-  const versionsDir = path.join(process.cwd(), basePath, 'versions');
-  
-  const fromVersionPath = path.join(versionsDir, fromVersion);
-  const toVersionPath = path.join(versionsDir, toVersion);
+  // Используем пути из utils (basePath игнорируется, т.к. paths всегда использует process.cwd())
+  const fromVersionPath = paths.getVersionPath(fromVersion);
+  const toVersionPath = paths.getVersionPath(toVersion);
   
   // Проверяем существование версий
   if (!fs.existsSync(fromVersionPath)) {
@@ -83,10 +46,10 @@ export async function buildDataDiff({ fromVersion, toVersion, basePath = "data" 
   }
   
   console.log(`📖 Загрузка версии ${fromVersion}...`);
-  const fromData = loadVersion(fromVersionPath);
+  const fromData = loadVersion(fromVersion);
   
   console.log(`📖 Загрузка версии ${toVersion}...`);
-  const toData = loadVersion(toVersionPath);
+  const toData = loadVersion(toVersion);
   
   console.log('🔍 Вычисление разницы...');
   
@@ -169,18 +132,16 @@ export async function buildDataDiff({ fromVersion, toVersion, basePath = "data" 
  * Сохраняет diff в файл
  */
 export async function saveDataDiff(diff, { basePath = "data" } = {}) {
-  const diffsDir = path.join(process.cwd(), basePath, 'diffs');
-  
-  if (!fs.existsSync(diffsDir)) {
-    fs.mkdirSync(diffsDir, { recursive: true });
-  }
+  // Используем пути из utils (basePath игнорируется)
+  const diffsDir = paths.getDiffsPath();
   
   const fromVersion = diff.meta.fromVersion || 'initial';
   const toVersion = diff.meta.toVersion;
   const diffFileName = `${fromVersion}__${toVersion}.diff.json`;
   const diffPath = path.join(diffsDir, diffFileName);
   
-  fs.writeFileSync(diffPath, JSON.stringify(diff, null, 2), 'utf-8');
+  // Используем утилиту для записи JSON
+  writeJsonFile(diffPath, diff);
   
   return diffPath;
 }

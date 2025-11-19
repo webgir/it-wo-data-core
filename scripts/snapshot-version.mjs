@@ -1,6 +1,11 @@
 import fs from "fs";
 import path from "path";
 import { createHash } from "crypto";
+// Утилиты IWDC v0.6
+import * as paths from "../utils/paths.mjs";
+import { saveMetaVersion } from "../utils/saveMetaVersion.mjs";
+import { loadMetaVersion } from "../utils/loadMetaVersion.mjs";
+import * as logger from "../utils/logger.mjs";
 
 /**
  * Рекурсивно копирует директорию
@@ -33,7 +38,7 @@ function copyDirectory(src, dest) {
  * Находит XLS/XLSX файлы в sources/xls/
  */
 function findXlsFiles() {
-  const xlsDir = path.join(process.cwd(), 'sources', 'xls');
+  const xlsDir = paths.getSourcesXlsPath();
   const files = [];
   
   if (!fs.existsSync(xlsDir)) {
@@ -70,8 +75,8 @@ function getFileHash(filePath) {
  * Создаёт снимок версии данных
  */
 export function snapshotVersion(version = null) {
-  const jsonDir = path.join(process.cwd(), 'data', 'json');
-  const versionsDir = path.join(process.cwd(), 'data', 'versions');
+  const jsonDir = paths.getDataJsonPath();
+  const versionsDir = paths.getVersionsPath();
   
   // Создаём директорию версий, если её нет
   if (!fs.existsSync(versionsDir)) {
@@ -81,11 +86,11 @@ export function snapshotVersion(version = null) {
   // Генерируем версию, если не указана
   const newVersion = version || generateVersionId();
   
-  // Путь к директории версии
-  const versionDir = path.join(versionsDir, newVersion);
+  // Путь к директории версии (используем утилиту из utils)
+  const versionDir = paths.getVersionPath(newVersion);
   
   // Копируем data/json/ → data/versions/<newVersion>/
-  console.log(`📂 Копирование data/json/ → data/versions/${newVersion}/...`);
+  logger.logInfo(`Копирование data/json/ → data/versions/${newVersion}/...`);
   copyDirectory(jsonDir, versionDir);
   
   // Находим XLS файлы и вычисляем хэш
@@ -98,11 +103,11 @@ export function snapshotVersion(version = null) {
     const xlsFile = xlsFiles[0];
     sourcePath = xlsFile.relativePath;
     xlsHash = getFileHash(xlsFile.path);
-    console.log(`📄 Найден источник: ${xlsFile.name}`);
-    console.log(`   Хэш: ${xlsHash.substring(0, 16)}...`);
+    logger.logInfo(`Найден источник: ${xlsFile.name}`);
+    logger.logInfo(`Хэш: ${xlsHash.substring(0, 16)}...`);
   }
   
-  // Создаём meta.json
+  // Создаём meta.json (используем утилиту из utils)
   const meta = {
     version: newVersion,
     date: new Date().toISOString(),
@@ -110,12 +115,11 @@ export function snapshotVersion(version = null) {
     sourcePath: sourcePath
   };
   
-  const metaPath = path.join(versionDir, 'meta.json');
-  fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2), 'utf-8');
+  saveMetaVersion(newVersion, meta);
   
-  console.log(`✅ Снимок версии создан: ${newVersion}`);
-  console.log(`   Путь: ${versionDir}`);
-  console.log(`   Meta: ${metaPath}`);
+  logger.logSuccess(`Снимок версии создан: ${newVersion}`);
+  logger.logInfo(`Путь: ${versionDir}`);
+  logger.logInfo(`Meta: ${paths.getVersionMetaPath(newVersion)}`);
   
   return {
     version: newVersion,
@@ -143,7 +147,7 @@ function generateVersionId() {
  * Получает последнюю версию
  */
 export function getLatestVersion() {
-  const versionsDir = path.join(process.cwd(), 'data', 'versions');
+  const versionsDir = paths.getVersionsPath();
   
   if (!fs.existsSync(versionsDir)) {
     return null;
@@ -154,18 +158,14 @@ export function getLatestVersion() {
   
   for (const entry of entries) {
     if (entry.isDirectory()) {
-      const metaPath = path.join(versionsDir, entry.name, 'meta.json');
-      if (fs.existsSync(metaPath)) {
-        try {
-          const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
-          versions.push({
-            version: meta.version,
-            date: meta.date,
-            path: entry.name
-          });
-        } catch (error) {
-          // Пропускаем некорректные meta.json
-        }
+      // Используем утилиту для загрузки meta
+      const meta = loadMetaVersion(entry.name);
+      if (meta) {
+        versions.push({
+          version: meta.version,
+          date: meta.date,
+          path: entry.name
+        });
       }
     }
   }
